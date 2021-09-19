@@ -5,10 +5,15 @@
  */
 package data;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author SE150968 - Thai Thanh Phat
  */
 public class VaccineList {
+    ArrayList<Vaccine> vList = new ArrayList();
     
+    private Scanner sc = new Scanner(System.in);
 }
