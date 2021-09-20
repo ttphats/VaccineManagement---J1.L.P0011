@@ -16,4 +16,5 @@ public class VaccineList {
     ArrayList<Vaccine> vList = new ArrayList();
     
     private Scanner sc = new Scanner(System.in);
+    //input vaccine list
 }

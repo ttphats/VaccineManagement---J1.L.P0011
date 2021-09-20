@@ -31,12 +31,20 @@ public class VaccineManagement {
             choice = menu.getChoice();
             switch(choice) {
             case 1:
+                break;
             case 2:
+                break;
             case 3:
+                break;
             case 4:
+                break;
             case 5:
+                break;
             case 6:
+                break;
             default:
+                System.out.println("Please choose from 1 to 6!!!");
+                break;
         }
             
         } while (choice != 6);
