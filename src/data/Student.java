@@ -21,6 +21,32 @@ public class Student {
         this.sID = sID;
         this.sName = sName;
     }
+
+    public String getsID() {
+        return sID;
+    }
+
+    public String getsName() {
+        return sName;
+    }
+
+    public void setsName(String sName) {
+        this.sName = sName;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("|%-10s|%-20s|\n", 
+                            sID, sName );
+    }
+    
+   public void showStudent() {
+       System.out.printf("|%-10s|%-20s|\n", 
+                            sID, sName );
+   }
+    
+    
+    
     
 
 }

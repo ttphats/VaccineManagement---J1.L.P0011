@@ -6,13 +6,14 @@
 package util;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
 
 /**
  *
  * @author SE150968 - Thai Thanh Phat
  */
-
 public class InputData {
 
     private static Scanner sc = new Scanner(System.in);
@@ -123,8 +124,6 @@ public class InputData {
             long t = BooleanDate.toDate(inputStr);
             if (t < 0) {
                 System.out.println(errorMsg);
-            } else if ((new Date(t)).before(d)) {
-                System.out.println("Food is out of date!!!! Please try again:");
             } else {
                 d = new Date(t);
                 return d;
@@ -132,12 +131,13 @@ public class InputData {
 
         }
     }
-        public static Date getADate(String inputStr) {
+
+    public static Date getADate(String inputStr) {
         Date d = new Date(System.currentTimeMillis());
         while (true) {
             long t = BooleanDate.toDate(inputStr);
             if (t < 0) {
-            }   else {
+            } else {
                 d = new Date(t);
                 return d;
             }
@@ -145,8 +145,35 @@ public class InputData {
         }
     }
 
+    public static long checkDateToDate(Date date1, Date date2) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar c1 = Calendar.getInstance();
+        Calendar c2 = Calendar.getInstance();
+        c1.setTime(date1);
+        c2.setTime(date2);
+        long noDay = (c2.getTime().getTime() - c1.getTime().getTime()) / (24 * 3600 * 1000);
+        return noDay;
+    }
+        public static boolean getYesNo(String inputMsg) {
+        while (true) {
+            System.out.print(inputMsg);
+            String response = sc.nextLine().trim();
+            if (response.length() == 0 || response.isEmpty()) {
+                System.err.println("Don't accept empty or blank!");
+                continue;
+            }
+            if (response.equalsIgnoreCase("y") || response.equalsIgnoreCase("yes") || response.equalsIgnoreCase("n") || response.equalsIgnoreCase("no")) {
+                if (response.equalsIgnoreCase("y") || response.equalsIgnoreCase("yes"))
+                    return true;
+                if (response.equalsIgnoreCase("n") || response.equalsIgnoreCase("no"))
+                    return false;
+            }
+            else
+                System.err.println("Wrong format! Format is Yes-Y/No-N!\n");
+        }
+    }
+
     //main() để test thử yêu cầu nhập mã số theo định dạng cho
-   
 //    public static void main(String[] args) {
 //        String id = getID("Input ID(DXXXXX): ", "Your input must be under "
 //                + "the format of DXXXXX, X stands for a digit",

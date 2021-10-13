@@ -26,16 +26,20 @@ public class Vaccine {
         return vID;
     }
 
-    public void setvID(String vID) {
-        this.vID = vID;
-    }
-
     public String getvName() {
         return vName;
     }
 
     public void setvName(String vName) {
         this.vName = vName;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("|%-10s|%-20s|\n", vID, vName);
+    }
+    public void showVaccine() {
+        System.out.printf("|%-10s|%-20s|\n", vID, vName);
     }
     
     
